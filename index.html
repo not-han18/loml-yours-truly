@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Moment</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: url('https://drive.google.com/uc?export=view&id=1FsKTHSdeOO0Q5m-QPJCLQXBYN4yux2z2') no-repeat center center fixed; 
+            background-size: cover;
+            color: #db3d44;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color:#db3d44;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b73239;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1 -->
+    <div id="slide1">
+        <p>Hello Gorgeous :) </p>
+        <button onclick="showSlide('slide2')">Hi Sohan :)</button>
+        <button onclick="showSlide('valentineQuestion')">Hi Baby <3 </button>
+    </div>
+
+    <!-- Slide 2 - Are you okay? -->
+    <div id="slide2" class="hidden">
+        <p>Are you okay?</p>
+        <button onclick="forceHiBaby()">Yes</button>
+        <button onclick="showSlide('hugsKisses')">No</button>
+    </div>
+
+    <!-- Hugs and Kisses Slide -->
+    <div id="hugsKisses" class="hidden">
+        <p>Hugs and Kisses 💖</p>
+    </div>
+
+    <!-- Valentine Question -->
+    <div id="valentineQuestion" class="hidden">
+        <p>Now that you chose the right option.</p>
+        <p>So tell me bae, will you be my wifey forever and after?</p>
+        <button onclick="positiveResponse()">OMGGG YESSS </button>
+        <button onclick="trickedResponse('no')">No :( </button>
+        <button onclick="trickedResponse('maybe')">Maybe ;)</button>
+    </div>
+
+    <p id="response"></p>
+
+    <script>
+        function showSlide(slideId) {
+            hideAllSlides();
+            document.getElementById(slideId).style.display = 'block';
+        }
+
+        function hideAllSlides() {
+            document.getElementById('slide1').style.display = 'none';
+            document.getElementById('slide2').style.display = 'none';
+            document.getElementById('valentineQuestion').style.display = 'none';
+            document.getElementById('hugsKisses').style.display = 'none';
+            document.getElementById('response').innerText = '';
+        }
+
+        function forceHiBaby() {
+            hideAllSlides();
+            document.getElementById('slide1').style.display = 'block';
+            alert("You know the right answer c'mon");
+        }
+
+        function positiveResponse() {
+            document.getElementById('response').innerText = 'Awww thats my girl now xD. I promise to love and cherish you forever and always babygurl, nobody but just us and only us.';
+        }
+
+        function trickedResponse(choice) {
+            var responseText = '';
+            if (choice === 'maybe') {
+                responseText = 'Hahaha, tricked you again. Choose Yes now will you? *puppy face*';
+            } else {
+                responseText = 'Hahaha, tricked you. No backsies remember? You are stuck with me now.';
+            }
+            document.getElementById('response').innerText = responseText;
+        }
+    </script>
+</body>
+</html>
